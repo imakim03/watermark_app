@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinterdnd2 import DND_FILES, TkinterDnD
-from PIL import Image, ImageTk
+from PIL import Image
 import uuid
 import os
 
@@ -12,7 +12,7 @@ SECONDARY_COLOR = "#9AD0C2"
 visible = False
 images = []
 watermark = None
-size = 80
+percentage = 0.1
 position = "bottom_right"
 
 def drop(event):
@@ -54,45 +54,41 @@ def browse_watermark():
 def add_watermark():
     global watermark
     global images
-    global size
+    global percentage
     global position
 
     try:
-        # Resize the watermark
-        new_size = (int(size),int(size))
-        width, height = watermark.size
-        aspect_ratio = width / height
-
-        if aspect_ratio > 1:
-            new_width = min(width, new_size[0])
-            new_height = new_width / aspect_ratio
-        else:
-            new_height = min(height, new_size[1])
-            new_width = new_height * aspect_ratio
-        
-        watermark = watermark.resize((int(new_width), int(new_height)))
-        
         # Position the watermark
         for image in images:
             image_width = image.width
             image_height = image.height
+            # save the watermark
+            saved_watermark = watermark
+            # Resize the watermark
             watermark_width = watermark.width
             watermark_height = watermark.height
+            
+            aspect_ratio = watermark_width / watermark_height
+            new_height = int(image_height * percentage)
+            new_width = int(new_height * aspect_ratio)
+
+            watermark = watermark.resize((new_width,new_height), Image.NEAREST)
 
             if position == "bottom_right":
-                x = image_width - watermark_width - 20
-                y = image_height - watermark_height - 20
+                x = image_width - new_width - 20
+                y = image_height - new_height - 20
             elif position == "bottom_left":
-                x = watermark_width - 60
-                y = image_height - watermark_height - 20
+                x = 20
+                y = image_height - new_height - 20
             elif position == "top_right":
-                x = image_width - watermark_width - 20
-                y = watermark_height - 60
+                x = image_width - new_width - 20
+                y = 20
             elif position == "top_left":
-                x = watermark_width - 60
-                y = watermark_height - 60
+                x = 20
+                y = 20
             
             image.paste(watermark, (x,y), mask = watermark) 
+            watermark = saved_watermark
 
             # Generate a unique name for the image
             unique_name = str(uuid.uuid4()) + ".png"
@@ -146,25 +142,33 @@ def show_settings():
         visible = False
 
 def apply_changes():
-    global size
+    global percentage
     global position
 
     position = new_position.get()
-    if not size :
-        size = new_size.get()
+    if new_size.get() != '' :
+        try:
+            new_percentage = float(new_size.get())
+            if new_percentage > 1 or new_percentage < 0 :
+                raise ValueError
+            percentage = new_percentage
+            error_message.config(text="")
+        except ValueError:
+            error_message.config(text="Invalid input. The default size is applied!")
+    print("Changes Applied!")
     applied_message.config(text="Changes Applied!")
 
 def reset():
     global watermark
     global images
-    global size
+    global percentage
     global position
     global visible
 
     show_settings()
     images = []
     watermark = None
-    size = 80
+    percentage = 0.1
     position = "bottom_right"
     watermark_message.config(text="")
     image_message.config(text="")
@@ -174,9 +178,9 @@ def reset():
     reset_button.grid_forget()
 
 main_window = TkinterDnD.Tk()
-main_window.title("Add a water mark to your photos")
+main_window.title("Add a watermark to your photos")
 main_window.configure(bg=BG_COLOR)
-main_window.geometry("400x655")
+main_window.geometry("400x660")
 main_window.resizable(False, False)
 
 main_window.drop_target_register(DND_FILES)
@@ -218,7 +222,7 @@ bottom_left_option = tk.Radiobutton(main_window, text="Bottom left",font=('SimSu
 bottom_right_option = tk.Radiobutton(main_window, text="Bottom right",font=('SimSun', 10),variable=new_position, value="bottom_right")
 new_position.set("bottom_right")
 
-size_label = tk.Label(main_window, text="Choose the size en pixel:\n* empty for default (80px)",font=('SimSun', 10))
+size_label = tk.Label(main_window, text="Choose the size en percentage :\n* empty for default (0.1 eq 10%;\n the watermark is 10% the size of the image.)",font=('SimSun', 10))
 new_size = tk.Entry(main_window, width=5)
 
 apply_button = tk.Button(main_window, text="Apply", command=apply_changes,font=('SimSun', 10))
