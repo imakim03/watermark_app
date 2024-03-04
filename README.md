@@ -27,27 +27,26 @@ This is a simple Python application built using Tkinter for adding watermarks to
 
 ## Screenshots
 
-Note: I don't own any of the images.
+### Default Settings
+![Screenshot App](https://git![screenshot_app](https://github.com/imakim03/watermark_app/assets/143851315/393b02e0-e814-4606-816c-def55ec3097a)
+![Default Settings](https![default_settings](https://github.com/imakim03/watermark_app/assets/143851315/237904ee-5355-4cac-851c-36f568ea47d0)
+Description: This screenshot shows the image made with the app's default settings applied.
 
-![Screenshot 2024-03-01 221350](https://github.com/imakim03/watermark_app/assets/143851315/44fa7010-fb9d-48b0-958e-9d0d92e50ad7)
-The image:
-![image](https://github.com/imakim03/watermark_app/assets/143851315/900a54ad-e573-4599-9f69-50ce8a0ac4d2)
-With the deafault settings:
-![image](https://github.com/imakim03/watermark_app/assets/143851315/e5fcdd5d-b0fb-4a18-aa1a-11035f2090aa)
-With the changed settings:
-![image](https://github.com/imakim03/watermark_app/assets/143851315/5840f2c9-e473-4a3e-afda-3133daec0954)
-![image](https://github.com/imakim03/watermark_app/assets/143851315/1ad454e6-eb82-465b-a51a-63339db53ea2)
-Other examples:
-![image](https://github.com/imakim03/watermark_app/assets/143851315/3e6349e8-1a25-46cc-8f7b-08a386119669)
-![image](https://github.com/imakim03/watermark_app/assets/143851315/39abafa4-3d00-4232-b4e9-82d91a3d5d38)
-![image](https://github.com/imakim03/watermark_app/assets/143851315/32e30623-366d-4fec-b253-6262914d8304)
+### Changed Settings
+![Screenshot_app_with_modified_settings](https://github.com/imakim03/watermark_app/assets/143851315/screenshot_app_with_modified_settings.png)
+![Changed Settings](https://github.com/imakim03/watermark_app/assets/changed_settings.png)
+Description: In this screenshot, the settings have been modified as follows: the size of the watermark has been adjusted to 50% of the size of the image, and it has been positioned in the bottom left corner.
+
+### Other Examples
+- ![Example 1](https://github.com/imakim03/watermark_app/assets/example1.png)
+- ![Example 2](https://github.com/imakim03/watermark_app/assets/example2.png)
 
 
 ## License
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2024 Imane Kimissi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
