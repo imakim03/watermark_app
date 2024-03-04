@@ -28,13 +28,19 @@ This is a simple Python application built using Tkinter for adding watermarks to
 ## Screenshots
 
 ### Default Settings
+
 ![Screenshot_App](https://github.com/imakim03/watermark_app/assets/143851315/1915357b-37a3-4a26-a15d-bb0ed3916592)
+
 ![Default_settings](https://github.com/imakim03/watermark_app/assets/143851315/ac8113e7-5913-40db-ab9e-d7e52f05bd4e)
+
 Description: This screenshot shows the image made with the app's default settings applied.
 
 ### Changed Settings
+
 ![Screenshot_app_with_modified_settings](https://github.com/imakim03/watermark_app/assets/143851315/bd29368b-2a37-44d6-ad8e-fda59395054e)
+
 ![Changed Settings](https://github.com/imakim03/watermark_app/assets/143851315/7b0a9fc1-5a81-47b6-b75f-3e1691533e21)
+
 Description: In this screenshot, the settings have been modified as follows: the size of the watermark has been adjusted to 50% of the size of the image, and it has been positioned in the bottom left corner.
 
 ## License
