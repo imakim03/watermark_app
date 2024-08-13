@@ -21,7 +21,7 @@ This is a simple Python application built using Tkinter for adding watermarks to
 
 ## Requirements
 
-- Python 3.11.8 # the application might work with other versions but has been tested and confirmed to work with Python 3.11.8
+- Python 3.11.8
 - tkinter
 - Pillow
 
