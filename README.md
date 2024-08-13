@@ -27,7 +27,7 @@ This is a simple Python application built using Tkinter for adding watermarks to
 
 ## Screenshots
 
-### Default Settings
+#### Default Settings
 
 ![Screenshot_App](https://github.com/imakim03/watermark_app/assets/143851315/1915357b-37a3-4a26-a15d-bb0ed3916592)
 
@@ -35,7 +35,7 @@ This is a simple Python application built using Tkinter for adding watermarks to
 
 Description: This screenshot shows the image made with the app's default settings applied.
 
-### Changed Settings
+#### Changed Settings
 
 ![Screenshot_app_with_modified_settings](https://github.com/imakim03/watermark_app/assets/143851315/bd29368b-2a37-44d6-ad8e-fda59395054e)
 
