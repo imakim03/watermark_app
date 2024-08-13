@@ -8,7 +8,6 @@ import os
 BG_COLOR = "#F3F3F3"
 PRIMARY_COLOR = "#29ADB2"
 SECONDARY_COLOR = "#9AD0C2"
-# global variables
 visible = False
 images = []
 watermark = None
@@ -17,7 +16,6 @@ position = "bottom_right"
 
 def drop(event):
     global images
-    # Retrieve the file path of the dropped images
     file_paths = event.data
     list_file_paths = file_paths.split("} {")
     for file_path in list_file_paths:
@@ -58,13 +56,10 @@ def add_watermark():
     global position
 
     try:
-        # Position the watermark
         for image in images:
             image_width = image.width
             image_height = image.height
-            # save the watermark
             saved_watermark = watermark
-            # Resize the watermark
             watermark_width = watermark.width
             watermark_height = watermark.height
             
